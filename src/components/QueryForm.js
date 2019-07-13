@@ -6,12 +6,20 @@ const QUERY_TYPES = {
     COORDINATES: 'coordinates'
 };
 
-export default class WeatherForm extends Component {
+export default class QueryForm extends Component {
     state = {}
     
     setField = (field) => (e) => {
         this.setState({ [field]: e.target.value })
-    } 
+    }
+
+    componentDidMount() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+                this.getData(QUERY_TYPES.COORDINATES, `${latitude},${longitude}`);
+            })
+        }
+    }
 
     getData = async (queryType, query) => {
         let data;
@@ -36,7 +44,7 @@ export default class WeatherForm extends Component {
                 </select>
                 <label htmlFor="query" className="form-label">Search for your location</label>
                 <input id="query" className="form-input" type="text" onChange={this.setField('query')} />
-                <button disabled={!queryType || !query} onClick={() => this.getData(queryType, query)}>Let's go!</button>
+                <button className="button" disabled={!queryType || !query} onClick={() => this.getData(queryType, query)}>Let's go!</button>
             </div>
         ); 
     }  
