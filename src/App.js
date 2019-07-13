@@ -11,9 +11,9 @@ function App() {
       <header className="App-header">
         <p>Weather app</p>
       </header>
-      <main>
+      <main className="main-container">
         <QueryForm onUpdate={updateWeatherData} />
-        {!!weatherData && <Graph data={weatherData} />}
+        {!!weatherData && <Graph data={weatherData.list} />}
       </main>
     </div>
   );

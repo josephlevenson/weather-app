@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -16,7 +10,6 @@
   justify-content: center;
   margin-bottom: 10px;
   color: white;
-
 }
 
 .form-input, .form-label {
@@ -37,7 +30,7 @@
   border-radius: 5px;
 }
 
-.form-container {
+.form-container, .graph-container {
   margin: 0% 20%;
   display: flex;
   flex-direction: column;

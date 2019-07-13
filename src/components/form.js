@@ -20,7 +20,6 @@ export default class WeatherForm extends Component {
         } else if (queryType === QUERY_TYPES.COORDINATES) {
             data = await getForecastByCoordinates(query.split(','));
         }
-        console.log(data)
         this.props.onUpdate(data);
     };
 
