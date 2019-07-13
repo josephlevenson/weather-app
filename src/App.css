@@ -10,24 +10,35 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 10px;
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+.form-input, .form-label {
+  display: block;
+}
+.form-label {
+  text-align: left;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.form-container {
+  margin: 0% 20%;
+  display: flex;
+  flex-direction: column;
 }
