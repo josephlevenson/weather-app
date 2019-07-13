@@ -2,9 +2,11 @@ import React from 'react';
 import { LineChart } from 'react-chartkick';
 import 'chart.js';
 
-export default function GraphList({ data, graphs }) {
+export default React.memo(function GraphList({ data, graphs }) {
     const formattedDataList = graphs.map(() => ({}));
 
+    // Iterate through the list of forecast data and assign the given forecast props (humidity, temp, etc.) to
+    // the corresponding graph config object
     for (const { dt_txt, main } of data) {
         for (let i = 0; i < graphs.length; i++) {
             if (!main[graphs[i].dataProp]) {
@@ -14,6 +16,7 @@ export default function GraphList({ data, graphs }) {
             }
         }
     }
+
     return (
         <div className="graph-container">
             {formattedDataList.map((chart, i) => (
@@ -25,4 +28,4 @@ export default function GraphList({ data, graphs }) {
             ))}       
         </div>
     );
-}
+})
